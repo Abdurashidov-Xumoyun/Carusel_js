@@ -8,8 +8,7 @@ body {
   justify-content: center;
   margin: 0;
   min-height: 100vh;
-  /* background: linear-gradient(45deg, rgb(48, 48, 48), rgb(107, 102, 102)); */
-  background-color: black;
+  background: linear-gradient(45deg, rgb(48, 48, 48), rgb(107, 102, 102));
 }
 
 .container {
