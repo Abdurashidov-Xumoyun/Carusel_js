@@ -1,39 +1,43 @@
 const btnLeft = document.querySelector(".btn_left");
 const btnRight = document.querySelector(".btn_right");
-const imgSrc = document.querySelector(".img");
-btnLeft.style.backgroundColor = "rgba(206, 127, 109, 0.77)"
+const imgBox = document.querySelector(".img_box");
+const imgAll = document.querySelectorAll(".img_box img");
 
-var elNumber = 0;
+console.log(imgAll);
 
-btnLeft.addEventListener("click", function () {
-  if (elNumber > 0) {
-    elNumber--;
-    slideShow();
-  }
-  console.log(elNumber);
+let index = 0;
+
+btnLeft.addEventListener("click", function change() {
+  index--;
+  changeImg()
+  resetInterval()
 });
 
-btnRight.addEventListener("click", function () {
-  elNumber++;
-  slideShow();
-
-  if (elNumber == 0) {
-    btnLeft.style.backgroundColor = "red"
-  } else if (elNumber > 0) {
-    btnLeft.style.backgroundColor = "rgba(241, 237, 231, 0.734)"
-  }
-
+btnRight.addEventListener("click", function change() {
+  index++;
+  changeImg()
+  resetInterval()
 });
 
-function slideShow() {
-  imgSrc.src = `https://picsum.photos/id/${elNumber}/500/500`
-  if (elNumber == 0) {
-    btnLeft.style.backgroundColor = "rgba(206, 127, 109, 0.77)"
+function changeImg() {
+  if (index > imgAll.length - 1) {
+    index = 0;
+  } else if (index < 0) {
+    index = imgAll.length - 1;
   }
+  imgBox.style.transform = `translateX(${-index * 500}px)`;
 }
 
 
+let interval = setInterval(run, 3000)
 
+function run() {
+  index++;
+  changeImg();
+}
 
-
+function resetInterval() {
+  clearInterval(interval);
+  interval = setInterval(run, 3000);
+}
 

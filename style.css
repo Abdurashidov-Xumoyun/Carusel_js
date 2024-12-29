@@ -8,7 +8,7 @@ body {
   justify-content: center;
   margin: 0;
   min-height: 100vh;
-  background-color: #111010;
+  background: linear-gradient(45deg, rgb(48, 48, 48), rgb(107, 102, 102));
 }
 
 .container {
@@ -28,7 +28,9 @@ body {
   z-index: 99;
   overflow: hidden;
   border-radius: 17px;
-  box-shadow: 2px 2px 50px #000000a2;
+  box-shadow: 5px 5px 50px #252525d6;
+  transition: all .5s ease;
+
 }
 
 .img_container img {
@@ -55,12 +57,24 @@ body {
   width: 100px;
   border: none;
   cursor: pointer;
-  background-color: rgba(241, 237, 231, 0.734);
-  transition: all .5a ease-in-out;
+  background-color: rgba(146, 143, 138, 0.734);
+  transition: all .3s ease-in-out;
+}
+
+button i {
+  transition: all .3s ease-in-out;
 }
 
 .btn_left {
- background-color: rgba(206, 127, 109, 0.77);
+  border-radius: 0px 50px 50px 0px;
+}
+
+.btn_right {
+  border-radius: 50px 0px 0px 50px;
+}
+
+.btn_left:hover i, .btn_right:hover i {
+  color: rgba(255, 255, 255, 0.635);
 }
 
 .btn_left:hover, .btn_right:hover {
